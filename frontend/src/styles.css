@@ -1,0 +1,36 @@
+@import 'tailwindcss';
+
+/* Design tokens: navy text, calm blue actions, teal success, amber pending, muted red errors. */
+@theme {
+  --color-ink: #14213d;
+  --color-muted: #52607a;
+  --color-line: #dde3ec;
+  --color-canvas: #f4f6f9;
+  --color-brand: #1d5fbf;
+  --color-brand-dark: #174c99;
+  --color-brand-soft: #eaf2fd;
+  --color-ok: #0f766e;
+  --color-ok-soft: #e4f4f1;
+  --color-wait: #8a5300;
+  --color-wait-soft: #fdf1da;
+  --color-bad: #a4343a;
+  --color-bad-soft: #fbeaea;
+  --font-sans: ui-sans-serif, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+body { background: var(--color-canvas); color: var(--color-ink); }
+:focus-visible { outline: 3px solid var(--color-brand); outline-offset: 2px; }
+
+@utility btn {
+  @apply inline-flex min-h-10 cursor-pointer items-center justify-center rounded-lg px-4 py-2 text-sm font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-50;
+}
+
+@layer components {
+  .card { @apply rounded-xl border border-line bg-white p-5 shadow-sm; }
+  .btn-primary { @apply btn bg-brand text-white hover:bg-brand-dark; }
+  .btn-secondary { @apply btn border border-line bg-white text-ink hover:bg-canvas; }
+  .btn-danger { @apply btn border border-bad/40 bg-white text-bad hover:bg-bad-soft; }
+  .input { @apply mt-1 block min-h-10 w-full rounded-lg border border-line bg-white px-3 py-2 text-base; }
+  .label { @apply block text-sm font-semibold; }
+  .link { @apply font-semibold text-brand underline-offset-2 hover:underline; }
+}
